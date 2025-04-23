@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/widgets/otp_verification_page.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+  final Widget Function() otpPageBuilder;
+  const LoginForm({super.key, required this.otpPageBuilder});
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -14,9 +14,10 @@ class _LoginFormState extends State<LoginForm> {
   void _onLogin() {
     final phone = _phoneController.text.trim();
     if (phone.isEmpty) return;
+    final page = widget.otpPageBuilder();
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (_) => OtpPage(phone: phone)),
+      MaterialPageRoute(builder: (_) => page),
     );
   }
 
