@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
-class OtpPage extends StatefulWidget {
-  final String phone;
-  const OtpPage({super.key, required this.phone});
+class OtpForm extends StatefulWidget {
+  const OtpForm({super.key});
 
   @override
-  State<OtpPage> createState() => _OtpPageState();
+  State<OtpForm> createState() => _OtpFormState();
 }
 
-class _OtpPageState extends State<OtpPage> {
+class _OtpFormState extends State<OtpForm> {
   final pinController = TextEditingController();
 
   void _verify() {
     final code = pinController.text.trim();
+    if (code.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter the OTP code'),
+        ),
+      );
+      return;
+    }
+    if (code.length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter a valid OTP code'),
+        ),
+      );
+      return;
+    }
     if (code.length == 6) {
       // verify OTP logic
     }
+    // If OTP is valid, navigate to the next screen
+    Navigator.pushReplacementNamed(context, '/SideMenu');
   }
 
   @override
