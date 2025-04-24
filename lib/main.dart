@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SideMenuPage(),
+      
       routes: {
         '/mobileLogin': (context) => MobileLoginPage(),
         '/tabletLogin': (context) => TabletLoginPage(),
