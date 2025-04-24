@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/desktop_layout/desktop_layout_screen.dart';
-import 'package:taskmanager/mobile_layout/mobile_layout_screen.dart';
-import 'package:taskmanager/tablet_layout/tablet_layout_screen.dart';
+import 'package:taskmanager/desktop_layout/login_page.dart';
+import 'package:taskmanager/mobile_layout/login_page.dart';
+import 'package:taskmanager/tablet_layout/login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,11 +10,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, Constraints) {
       if (Constraints.maxWidth > 950) {
-        return DesktopLayoutScreen();
+        return DesktopLoginPage();
       } else if (Constraints.maxWidth > 600) {
-        return TabletLayoutScreen();
+        return TabletLoginPage();
       } else {
-        return MobileLayoutScreen();
+        return MobileLoginPage();
       }
     });
   }

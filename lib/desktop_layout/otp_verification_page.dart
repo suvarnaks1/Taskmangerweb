@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/desktop_layout/otp_verification_page.dart';
-import 'package:taskmanager/common/widgets/login_form.dart';
+import 'package:taskmanager/common/widgets/otp_form.dart';
 import 'package:taskmanager/common/widgets/side_illustration.dart';
 
-class DesktopLoginPage extends StatelessWidget {
-  const DesktopLoginPage({super.key});
+class DesktopOtpPage extends StatelessWidget {
+  const DesktopOtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +22,10 @@ class DesktopLoginPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 80),
                 child: Center(
-                    child: LoginForm(
-                  otpPageBuilder: () => DesktopOtpPage(),
-                )),
+                  child: OtpForm(
+
+                  ),
+                ),
               ),
             ),
           ],

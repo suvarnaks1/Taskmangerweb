@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/widgets/login_form.dart';
+import 'package:taskmanager/mobile_layout/otp_verification_page.dart';
+import 'package:taskmanager/common/widgets/login_form.dart';
 
 class MobileLoginPage extends StatelessWidget {
   const MobileLoginPage({super.key});
@@ -14,7 +15,7 @@ class MobileLoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            LoginForm(),
+            LoginForm(otpPageBuilder: () => MobileOtpPage(),),
           ],
         ),
       ),
