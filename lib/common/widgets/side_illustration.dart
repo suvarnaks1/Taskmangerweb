@@ -10,6 +10,7 @@ class SideIllustration extends StatelessWidget {
         'assets/images/login_vector.jpg',
         fit: BoxFit.cover,
         width: 400,
+        
       ),
     );
   }
