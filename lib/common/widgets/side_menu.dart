@@ -1,6 +1,7 @@
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:flutter/material.dart';
 import 'package:taskmanager/common/widgets/search_input.dart';
+import 'package:taskmanager/customers_page.dart';
 import 'package:taskmanager/jobs_page.dart';
 
 class SideMenuPage extends StatefulWidget {
@@ -129,15 +130,8 @@ class _SideMenuPageState extends State<SideMenuPage> {
                   ),
                 ),
                 JobsPage(),
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Customers',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
+                DesktopCustomersPage(),
+
                 Container(
                   color: Colors.white,
                   child: const Center(
