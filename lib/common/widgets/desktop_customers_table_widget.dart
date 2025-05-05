@@ -1,212 +1,13 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
-
-class Customer {
-  final String name;
-  final String type;
-  final String mobile;
-  final String paymentReceived;
-  final String paymentRemaining;
-  final String phoneNumber;
-  final String email;
-  final String lastLogin;
-  final String createdOn;
-
-  Customer({
-    required this.name,
-    required this.type,
-    required this.mobile,
-    required this.paymentReceived,
-    required this.paymentRemaining,
-    required this.phoneNumber,
-    required this.email,
-    required this.lastLogin,
-    required this.createdOn,
-  });
-}
+import 'package:flutter/services.dart';
+import 'package:taskmanager/customer_model.dart';
 
 class DesktopCustomersTableWidget extends StatelessWidget {
   DesktopCustomersTableWidget({super.key});
 
-  final List<Customer> customers = [
-    Customer(
-      name: "John Doe",
-      type: "",
-      mobile: "8956238956",
-      paymentReceived: "0.00",
-      paymentRemaining: "",
-      phoneNumber: "9876543210",
-      email: "john@example.com",
-      lastLogin: "2024-04-30",
-      createdOn: "2023-12-01",
-    ),
-    Customer(
-      name: "Jane Smith",
-      type: "",
-      mobile: "9123456789",
-      paymentReceived: "1000.00",
-      paymentRemaining: "500.00",
-      phoneNumber: "9123456789",
-      email: "jane@example.com",
-      lastLogin: "2024-04-29",
-      createdOn: "2023-11-15",
-    ),
-    Customer(
-      name: "John Doe",
-      type: "",
-      mobile: "8956238956",
-      paymentReceived: "0.00",
-      paymentRemaining: "",
-      phoneNumber: "9876543210",
-      email: "john@example.com",
-      lastLogin: "2024-04-30",
-      createdOn: "2023-12-01",
-    ),
-    Customer(
-      name: "Robert Johnson",
-      type: "",
-      mobile: "8456238956",
-      paymentReceived: "500.00",
-      paymentRemaining: "200.00",
-      phoneNumber: "8456238956",
-      email: "robert@example.com",
-      lastLogin: "2024-04-28",
-      createdOn: "2023-10-10",
-    ),
-    Customer(
-      name: "John Doe",
-      type: "",
-      mobile: "8956238956",
-      paymentReceived: "0.00",
-      paymentRemaining: "",
-      phoneNumber: "9876543210",
-      email: "john@example.com",
-      lastLogin: "2024-04-30",
-      createdOn: "2023-12-01",
-    ),
-    Customer(
-      name: "Emily Davis",
-      type: "",
-      mobile: "7788994455",
-      paymentReceived: "1500.00",
-      paymentRemaining: "0.00",
-      phoneNumber: "7788994455",
-      email: "emily@example.com",
-      lastLogin: "2024-04-27",
-      createdOn: "2023-09-05",
-    ),
-    Customer(
-      name: "Michael Wilson",
-      type: "",
-      mobile: "9988776655",
-      paymentReceived: "750.00",
-      paymentRemaining: "250.00",
-      phoneNumber: "9988776655",
-      email: "michael@example.com",
-      lastLogin: "2024-04-26",
-      createdOn: "2023-08-20",
-    ),
-    Customer(
-      name: "John Doe",
-      type: "",
-      mobile: "8956238956",
-      paymentReceived: "0.00",
-      paymentRemaining: "",
-      phoneNumber: "9876543210",
-      email: "john@example.com",
-      lastLogin: "2024-04-30",
-      createdOn: "2023-12-01",
-    ),
-    Customer(
-      name: "Robert Johnson",
-      type: "",
-      mobile: "8456238956",
-      paymentReceived: "500.00",
-      paymentRemaining: "200.00",
-      phoneNumber: "8456238956",
-      email: "robert@example.com",
-      lastLogin: "2024-04-28",
-      createdOn: "2023-10-10",
-    ),
-    Customer(
-      name: "John Doe",
-      type: "",
-      mobile: "8956238956",
-      paymentReceived: "0.00",
-      paymentRemaining: "",
-      phoneNumber: "9876543210",
-      email: "john@example.com",
-      lastLogin: "2024-04-30",
-      createdOn: "2023-12-01",
-    ),
-    Customer(
-      name: "Emily Davis",
-      type: "",
-      mobile: "7788994455",
-      paymentReceived: "1500.00",
-      paymentRemaining: "0.00",
-      phoneNumber: "7788994455",
-      email: "emily@example.com",
-      lastLogin: "2024-04-27",
-      createdOn: "2023-09-05",
-    ),
-    Customer(
-      name: "Michael Wilson",
-      type: "",
-      mobile: "9988776655",
-      paymentReceived: "750.00",
-      paymentRemaining: "250.00",
-      phoneNumber: "9988776655",
-      email: "michael@example.com",
-      lastLogin: "2024-04-26",
-      createdOn: "2023-08-20",
-    ),
-    Customer(
-      name: "Emily Davis",
-      type: "",
-      mobile: "7788994455",
-      paymentReceived: "1500.00",
-      paymentRemaining: "0.00",
-      phoneNumber: "7788994455",
-      email: "emily@example.com",
-      lastLogin: "2024-04-27",
-      createdOn: "2023-09-05",
-    ),
-    Customer(
-      name: "Davis",
-      type: "",
-      mobile: "7788994455",
-      paymentReceived: "1500.00",
-      paymentRemaining: "0.00",
-      phoneNumber: "7788994455",
-      email: "emily@example.com",
-      lastLogin: "2024-04-27",
-      createdOn: "2023-09-05",
-    ),
-    Customer(
-      name: "Emily Davis",
-      type: "",
-      mobile: "7788994455",
-      paymentReceived: "1500.00",
-      paymentRemaining: "0.00",
-      phoneNumber: "7788994455",
-      email: "emily@example.com",
-      lastLogin: "2024-04-27",
-      createdOn: "2023-09-05",
-    ),
-  ];
-
-  List<Color> avatarColors = [
-    Colors.blue,
-    Colors.green,
-    Colors.orange,
-    Colors.purple,
-    Colors.teal,
-    Colors.pink,
-    Colors.indigo,
-    Colors.amber,
-    Colors.cyan,
-    Colors.deepOrange,
-  ];
+  List<Color> colorsList = Customer.colorsList;
+  List<Customer> customersList = Customer.customersList;
 
   @override
   Widget build(BuildContext context) {
@@ -214,13 +15,7 @@ class DesktopCustomersTableWidget extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
 
     String nameFlitter(String name) {
-      var a = name.split("");
-      for (int i = 0; i <= a.length; i++) {
-        if (i == 0) {
-          return a[0];
-        }
-      }
-      return "";
+      return name[0];
     }
 
     return Container(
@@ -242,11 +37,11 @@ class DesktopCustomersTableWidget extends StatelessWidget {
               columnWidths: const {
                 0: FlexColumnWidth(4),
                 1: FlexColumnWidth(2),
-                2: FlexColumnWidth(3),
+                2: FlexColumnWidth(4),
                 3: FlexColumnWidth(4),
                 4: FlexColumnWidth(3),
                 5: FlexColumnWidth(4),
-                6: FlexColumnWidth(4),
+                6: FlexColumnWidth(5),
                 7: FlexColumnWidth(3),
                 8: FlexColumnWidth(3),
                 9: FlexColumnWidth(2),
@@ -353,9 +148,9 @@ class DesktopCustomersTableWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                ...customers.map((customer) => TableRow(
+                ...customersList.map((customer) => TableRow(
                       decoration: BoxDecoration(
-                        color: customers.indexOf(customer) % 2 == 0
+                        color: customersList.indexOf(customer) % 2 == 0
                             ? Colors.white
                             : const Color.fromARGB(255, 241, 240, 240),
                       ),
@@ -367,9 +162,9 @@ class DesktopCustomersTableWidget extends StatelessWidget {
                               CircleAvatar(
                                 radius: 16,
                                 child: Text(nameFlitter(customer.name)),
-                                backgroundColor: avatarColors[
-                                    customers.indexOf(customer) %
-                                        avatarColors.length],
+                                backgroundColor: colorsList[
+                                    customersList.indexOf(customer) %
+                                        colorsList.length],
                               ),
                               SizedBox(
                                 width: 5,
@@ -384,11 +179,23 @@ class DesktopCustomersTableWidget extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(20),
-                          child: Text(
-                            customer.mobile,
-                            style: TextStyle(
-                              color: Colors.blue,
-                            ),
+                          child: Row(
+                            children: [
+                              Text(
+                                customer.mobile,
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              SizedBox(),
+                              IconButton(
+                                  onPressed: () {
+                                    FlutterClipboard.copy(customer.mobile);
+                                  },
+                                  icon: Icon(Icons.content_paste_outlined,
+                                      color:
+                                          Color.fromARGB(255, 161, 164, 167)))
+                            ],
                           ),
                         ),
                         Padding(
@@ -407,11 +214,23 @@ class DesktopCustomersTableWidget extends StatelessWidget {
                         ),
                         Padding(
                             padding: const EdgeInsets.all(20),
-                            child: Text(
-                              customer.email,
-                              style: TextStyle(
-                                color: Colors.blue,
-                              ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  customer.email,
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                SizedBox(),
+                                IconButton(
+                                    onPressed: () {
+                                      FlutterClipboard.copy(customer.email);
+                                    },
+                                    icon: Icon(Icons.content_paste_outlined,
+                                        color:
+                                            Color.fromARGB(255, 161, 164, 167)))
+                              ],
                             )),
                         Padding(
                           padding: const EdgeInsets.all(20),
@@ -427,7 +246,7 @@ class DesktopCustomersTableWidget extends StatelessWidget {
                             child: IconButton(
                               onPressed: () {},
                               icon: const Icon(
-                                Icons.settings,
+                                Icons.settings_outlined,
                                 color: Color.fromARGB(255, 122, 191, 247),
                               ),
                             ),

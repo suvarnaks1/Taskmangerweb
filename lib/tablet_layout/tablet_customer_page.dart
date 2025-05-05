@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taskmanager/common/desktop_customers_table_widget.dart';
+import 'package:taskmanager/common/widgets/tablet_cutomers_table_widget.dart';
 
-class DesktopCustomersPage extends StatelessWidget {
-  const DesktopCustomersPage({super.key});
-
+class TabletCustomerPage extends StatelessWidget {
+  TabletCustomerPage({super.key});
   @override
   Widget build(BuildContext context) {
     List<String> selectStateList = [
@@ -50,7 +49,7 @@ class DesktopCustomersPage extends StatelessWidget {
               children: [
                 Text(
                   "Customers",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 Expanded(
                   child: SizedBox(
@@ -59,7 +58,7 @@ class DesktopCustomersPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: SizedBox(
-                    width: 400,
+                    width: 300,
                     child: TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -78,15 +77,17 @@ class DesktopCustomersPage extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                DropdownMenu(
-                    hintText: "Select State",
-                    width: 200,
-                    menuHeight: 300,
-                    dropdownMenuEntries: selectStateList
-                        .map(
-                          (e) => DropdownMenuEntry(value: e, label: e),
-                        )
-                        .toList()),
+                Expanded(
+                  child: DropdownMenu(
+                      hintText: "Select State",
+                      width: 200,
+                      menuHeight: 300,
+                      dropdownMenuEntries: selectStateList
+                          .map(
+                            (e) => DropdownMenuEntry(value: e, label: e),
+                          )
+                          .toList()),
+                ),
                 SizedBox(
                   width: 10,
                 ),
@@ -118,7 +119,7 @@ class DesktopCustomersPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            DesktopCustomersTableWidget()
+            TabletCustomersTableWidget()
           ],
         ),
       ),

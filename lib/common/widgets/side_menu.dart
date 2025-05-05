@@ -1,8 +1,10 @@
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:flutter/material.dart';
 import 'package:taskmanager/common/widgets/search_input.dart';
-import 'package:taskmanager/customers_page.dart';
+import 'package:taskmanager/desktop_layout/desktop_customers_page.dart';
 import 'package:taskmanager/jobs_page.dart';
+import 'package:taskmanager/mobile_layout/mobile_customers_page.dart';
+import 'package:taskmanager/tablet_layout/tablet_customer_page.dart';
 
 class SideMenuPage extends StatefulWidget {
   const SideMenuPage({super.key});
@@ -130,8 +132,17 @@ class _SideMenuPageState extends State<SideMenuPage> {
                   ),
                 ),
                 JobsPage(),
-                DesktopCustomersPage(),
-
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    if (constraints.maxWidth < 600) {
+                      return MobileCustomersPage();
+                    } else if (constraints.maxWidth < 1200) {
+                      return TabletCustomerPage();
+                    } else {
+                      return DesktopCustomersPage();
+                    }
+                  },
+                ),
                 Container(
                   color: Colors.white,
                   child: const Center(

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanager/common/widgets/side_menu.dart';
+import 'package:taskmanager/desktop_layout/desktop_customers_page.dart';
 import 'package:taskmanager/desktop_layout/login_page.dart';
 import 'package:taskmanager/desktop_layout/otp_verification_page.dart';
 import 'package:taskmanager/home_page.dart';
 import 'package:taskmanager/mobile_layout/login_page.dart';
+import 'package:taskmanager/mobile_layout/mobile_customers_page.dart';
 import 'package:taskmanager/mobile_layout/otp_verification_page.dart';
+
 import 'package:taskmanager/tablet_layout/otp_verification_page.dart';
+import 'package:taskmanager/tablet_layout/tablet_customer_page.dart';
 
 import 'tablet_layout/login_page.dart';
 
@@ -21,7 +25,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SideMenuPage(),
-      
       routes: {
         '/mobileLogin': (context) => MobileLoginPage(),
         '/tabletLogin': (context) => TabletLoginPage(),
@@ -30,6 +33,9 @@ class MyApp extends StatelessWidget {
         '/tabletOtp': (context) => TabletOtpPage(),
         '/mobileOtp': (context) => MobileOtpPage(),
         '/SideMenu': (context) => const SideMenuPage(),
+        '/desktopCustomersPage': (context) => DesktopCustomersPage(),
+        '/tabletCustomersPage': (context) => TabletCustomerPage(),
+        '/mobileCustomersPage': (context) => MobileCustomersPage(),
       },
     );
   }
