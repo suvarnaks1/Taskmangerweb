@@ -176,7 +176,6 @@ class _MobileCustomersPageState extends State<MobileCustomersPage> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 10),
                         SizedBox(width: 30),
                       ],
                     ),
