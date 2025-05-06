@@ -122,6 +122,9 @@ class _SideMenuPageState extends State<SideMenuPage> {
             child: PageView(
               controller: pageController,
               children: [
+                MobileCustomersPage(),
+                // TabletCustomerPage(),
+                // DesktopCustomersPage(),
                 Container(
                   color: Colors.white,
                   child: const Center(
@@ -132,17 +135,7 @@ class _SideMenuPageState extends State<SideMenuPage> {
                   ),
                 ),
                 JobsPage(),
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    if (constraints.maxWidth < 600) {
-                      return MobileCustomersPage();
-                    } else if (constraints.maxWidth < 1200) {
-                      return TabletCustomerPage();
-                    } else {
-                      return DesktopCustomersPage();
-                    }
-                  },
-                ),
+
                 Container(
                   color: Colors.white,
                   child: const Center(

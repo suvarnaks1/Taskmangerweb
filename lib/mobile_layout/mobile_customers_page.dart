@@ -124,6 +124,7 @@ class _MobileCustomersPageState extends State<MobileCustomersPage> {
                                   color: Color.fromARGB(255, 168, 169, 170),
                                 ),
                               ),
+                              isDense: true,
                               hintText: 'Name, Mobile, Email etc',
                               prefixIcon: Icon(Icons.search),
                             ),
@@ -138,10 +139,21 @@ class _MobileCustomersPageState extends State<MobileCustomersPage> {
                             width: 150,
                             menuHeight: 300,
                             dropdownMenuEntries: selectStateList
-                                .map(
-                                  (e) => DropdownMenuEntry(value: e, label: e),
-                                )
+                                .map((e) =>
+                                    DropdownMenuEntry(value: e, label: e))
                                 .toList(),
+                            inputDecorationTheme: InputDecorationTheme(
+                              isCollapsed: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 4),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 168, 169, 170),
+                                    width: 1),
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
                           ),
                         ),
                         SizedBox(width: 10),
