@@ -1,19 +1,17 @@
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:flutter/material.dart';
 import 'package:taskmanager/common/widgets/search_input.dart';
-import 'package:taskmanager/desktop_layout/desktop_customers_page.dart';
 import 'package:taskmanager/jobs_page.dart';
-import 'package:taskmanager/mobile_layout/mobile_customers_page.dart';
 import 'package:taskmanager/tablet_layout/tablet_customer_page.dart';
 
-class SideMenuPage extends StatefulWidget {
-  const SideMenuPage({super.key});
+class TabletSideMenu extends StatefulWidget {
+  const TabletSideMenu({super.key});
 
   @override
-  _SideMenuPageState createState() => _SideMenuPageState();
+  State<TabletSideMenu> createState() => _TabletSideMenuState();
 }
 
-class _SideMenuPageState extends State<SideMenuPage> {
+class _TabletSideMenuState extends State<TabletSideMenu> {
   PageController pageController = PageController();
   SideMenuController sideMenu = SideMenuController();
   TextEditingController textController = TextEditingController();
@@ -132,21 +130,7 @@ class _SideMenuPageState extends State<SideMenuPage> {
                   ),
                 ),
                 JobsPage(),
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    if (constraints.maxWidth < 600) {
-                      // Mobile layout
-                      return MobileCustomersPage();
-                    } else if (constraints.maxWidth < 1200) {
-                      // Tablet layout
-                      return TabletCustomerPage();
-                    } else {
-                      // Web/desktop layout
-                      return DesktopCustomersPage();
-                    }
-                  },
-                ),
-
+                TabletCustomerPage(),
                 Container(
                   color: Colors.white,
                   child: const Center(
@@ -156,10 +140,7 @@ class _SideMenuPageState extends State<SideMenuPage> {
                     ),
                   ),
                 ),
-
-                // this is for SideMenuItem with builder (divider)
                 const SizedBox.shrink(),
-
                 Container(
                   color: Colors.white,
                   child: const Center(
@@ -169,7 +150,6 @@ class _SideMenuPageState extends State<SideMenuPage> {
                     ),
                   ),
                 ),
-
                 Container(
                   color: Colors.white,
                   child: const Center(

@@ -11,14 +11,30 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final TextEditingController _phoneController = TextEditingController();
 
-  void _onLogin() {
-    final phone = _phoneController.text.trim();
-    if (phone.isEmpty) return;
-    final page = widget.otpPageBuilder();
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => page),
-    );
+  // void _onLogin() {
+  //   final phone = _phoneController.text.trim();
+  //   if (phone.isEmpty) return;
+  //   final page = widget.otpPageBuilder();
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (_) => page),
+  //   );
+  // }
+
+  void loginPressed() {
+    if (_phoneController.text.isEmpty) {
+      return;
+    } else {
+      final screenWidth = MediaQuery.of(context).size.width;
+
+      if (screenWidth < 600) {
+        Navigator.pushNamed(context, '/mobileSideMenu');
+      } else if (screenWidth < 1200) {
+        Navigator.pushNamed(context, '/tabletSideMenu');
+      } else {
+        Navigator.pushNamed(context, '/desktopSideMenu');
+      }
+    }
   }
 
   @override
@@ -61,7 +77,8 @@ class _LoginFormState extends State<LoginForm> {
         SizedBox(
           height: 50,
           child: ElevatedButton(
-            onPressed: _onLogin,
+            // onPressed: _onLogin,
+            onPressed: loginPressed,
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xff0D6EFD),
               shape: RoundedRectangleBorder(
@@ -78,9 +95,7 @@ class _LoginFormState extends State<LoginForm> {
         SizedBox(
           height: 50,
           child: OutlinedButton.icon(
-            onPressed: () {
-              /* TODO: Google sign-in */
-            },
+            onPressed: () {},
             icon: Image.asset('assets/images/google_logo.png',
                 width: 24, height: 24),
             label: const Text('Sign In With Google',
