@@ -22,9 +22,7 @@ class DesktopOtpPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 80),
                 child: Center(
-                  child: OtpForm(
-
-                  ),
+                  child: OtpForm(),
                 ),
               ),
             ),
